@@ -1,0 +1,252 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Michael}{Berger}
+\title{Curriculum Vitae}                           % optional, remove / comment the line if not wanted
+\address{Mohliver 6}{Herzliya, Israel}             % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{(052) 943 9751}                % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+% \phone[fixed]{+2~(345)~678~901}
+% \phone[fax]{+3~(456)~789~012}
+\email{vo1kod4v@gmail.com}                              % optional, remove / comment the line if not wanted
+% \homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+\social[linkedin]{Michael-Berger-E}                        % optional, remove / comment the line if not wanted
+% \social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
+% \social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+% \social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+% \social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
+% \social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+\photo[64pt][0.4pt]{Michael}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Experience}
+
+% \subsection{Vocational}
+\cventry{2011-2017}{SW/DevOps engineer}{\textsc{Israeli Navy Intelligence}}{Haifa}{}{
+\begin{itemize}
+\item Support of computing infrastructure  for a team of experts performing continuous loop of data acquisition, analysis and deployment of information on multiple sites.
+\item Maintenance and further development of an existing Asp.Net/SQL - based solution for computer-aided acoustic recognition.
+\item Development of software and work procedures for robust deployments of said solution and information to multiple  sites.
+  \begin{itemize}
+  \item Development of custom tool for creating incremental updates for sites lacking network connectivity.
+  \end{itemize}
+\item Development of management tools for massive audio recordings database,  with an emphasis on robust  metadata input methods
+\item Extensive maintenance and development with MS SQL database
+  \begin{itemize}
+  \item Exposing data discrepancies and fixing them
+  \item Development of stored procedures for automatic conversion to different database structure 
+  \item Creating backup procedures, performing and supervising server backups
+  \end{itemize}
+\item Development of POC data mining software for massive amounts of  acoustic recordings - in collaboration with Rafael; Matlab as main research environment
+  \begin{itemize}
+  \item Developing statistical algorithms for extraction and interpretation of spectral features in acoustic data 
+  \item Database design
+  \item HMI design
+  \item Interactive data visualisation
+  \item Performance improvement by utilizing parallel/GPU/cluster computing with Matlab tools
+  \end{itemize}
+\item Data recovery using 010 editor scripting engine (FAT file system)
+\item Facilitating  version control (GIT) adoption on all team software projects
+\item Fun side project - Designing modern style icons and insignia for the team
+\item Maintenance officer: maintaining  computing and electronic equipment inventory.
+\end{itemize}
+}
+
+% \cventry{2012--Present}{1\textsuperscript{st} Year Analyst}{\textsc{Lehman Brothers}}{Los Angeles}{}{Developed spreadsheets for risk analysis on exotic derivatives on a wide array of commodities (ags, oils, precious and base metals), managed blotter and secondary trades on structured notes, liaised with Middle Office, Sales and Structuring for bookkeeping.
+% \newline{}\newline{}
+% Detailed achievements:
+% \begin{itemize}
+% \item Learned how to make amazing coffee
+% \item Finally determined the reason for \textsc{PC LOAD LETTER}:
+% \begin{itemize}
+% \item Paper jam
+% \item Software issues:
+% \begin{itemize}
+% \item Word not sending the correct data to printer
+% \item Windows trying to print in letter format
+% \end{itemize}
+% \item Coffee spilled inside printer
+% \end{itemize}
+% \item Broke the office record for number of kitten pictures in cubicle
+% \end{itemize}}
+
+%------------------------------------------------
+
+%\cventry{2011--2012}{Summer Intern}{\textsc{Lehman Brothers}}{Los Angeles}{}{Rated "truly distinctive" for Analytical Skills and Teamwork.}
+
+%------------------------------------------------
+
+% \subsection{Miscellaneous}
+% 
+% \cventry{2010--2011}{}{}{}{}{Spent some time finding myself. This was a courageous endeavour that didn't have a job title. It was quite important to my overall development though so I'm adding it to my CV. Also it explains the gap in my otherwise stellar CV.}
+% 
+% \cventry{2009--2010}{Computer Repair Specialist}{Buy More}{Burbank}{}{Worked in the Nerd Herd and helped to solve computer problems. Allowed me to become expert in all forms of martial arts and weaponry.}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+
+\subsection{Formal}
+\cventry{2015-present}{Data Science Specialization}{Coursera.org}{~160 hours}{\textit{GPA -- 8.0}}{
+Main topics covered in the course:
+  \begin{itemize}
+  \item{Statistical inference, Regression Models, Machine Learning}
+  \item{Exploratory Data Analysis, Reproducible Research, R, Rstudio} 
+  \end{itemize}
+  }
+  
+ \cventry{2007- 2011}{B.Sc,Applied mathematics faculty}{Holon Institute of Technology}{\textit{GPA -- 79.0}}{Applied mathematics faculty, Bioinformatics specialization }{
+Main disciplines learned:
+  \begin{itemize}
+  \item Mathematical modelling, Approximation theory, Numeric analysis, Mathematical Simulation, GeoInformation systems
+  \item Complex functions, Fourier series,
+  \item Genetics, Biological Processes, Genetic algorithms, Medical imaging analysis,
+  \item Introduction to programming, Algorithms and data structures, Computer architecture, C\#, .Net,  Matlab
+  \end{itemize}
+  }
+\subsection{Courses}  
+\cventry{2015}{Image processing course}{Israel Air Force}{50 hours}{}{}
+\cventry{2016}{Software engineering with Matlab}{Navy Mamtam}{40 hours}{}{}
+\cventry{2006}{PC hardware service and maintenance course}{Saint Petersburg City Palace of Youth Creativity}{170 hours}{}{}
+
+%----------------------------------------------------------------------------------------
+%	Military Service SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Military Service}
+\cventry{2011-2017}{\textsc{Israeli Navy Intelligence}}{Academisation track}{}{}{Highest rank - Senior academic officer}
+
+%----------------------------------------------------------------------------------------
+%	 Technologies SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Technologies}
+
+\cvitem{Advanced}{Asp.Net, C\#, Vb, SQL , R, Matlab, git}
+\cvitem{Intermediate}{MSSQL Server, IIS and Windows file server administration, cmd scripting, VirtualBox}
+\cvitem{Basic}{Linux, Ubuntu}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Communication Skills}
+
+\cvitem{2010}{LOLIDUNNO}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Interests}
+
+\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+
+\begin{cvcolumns}
+  \cvcolumn{Data science}{\begin{itemize}\item Machine learning\item AI\item PC hardware\end{itemize}}
+  \cvcolumn{Category 2}{\begin{itemize}\item Cluster computing\item Time-Frequency analysis\end{itemize}}
+  \cvcolumn[0.5]{ Software development}{\begin{itemize}\item Free and open source software\item elegant and robust algorithms\end{itemize}}
+\end{cvcolumns}
+% Data science, Machine learning, AI, Cluster computing, Time-Frequency analysis, Software development, Free and open source software, elegant and robust algorithms, PC hardware
+% \cvlistdoubleitem{Piano}{Chess}
+% \cvlistdoubleitem{Cooking}{Dancing}
+% \cvlistitem{Running}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Languages}
+
+\cvitemwithcomment{Russian}{Mothertongue}{}
+\cvitemwithcomment{Hebrew}{Conversationally fluent}{Somewhat slow at reading}
+\cvitemwithcomment{English}{Fluent}{}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+% \nocite{*}
+% \bibliographystyle{plain}
+% \bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+\date{January 01, 1984}
+\opening{Dear Sir or Madam,}
+\closing{Yours faithfully,}
+\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+\makelettertitle
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+Albert Einstein discovered that $e=mc^2$ in 1905.
+
+\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+\makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+
+
+%% end of file `template.tex'.

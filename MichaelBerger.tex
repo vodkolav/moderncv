@@ -8,6 +8,8 @@
 
 \documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
+\usepackage{comment}
+
 % moderncv themes
 \moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
 \moderncvcolor{blue}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
@@ -35,7 +37,7 @@
 \social[linkedin]{Michael-Berger-E}                        % optional, remove / comment the line if not wanted
 % \social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
 % \social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
-% \social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+\social[github]{vodkolav}                              % optional, remove / comment the line if not wanted
 % \social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
 % \social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
 % \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
@@ -63,22 +65,23 @@
 \section{Experience}
 
 % \subsection{Vocational}
-\cventry{2011-2017}{SW/DevOps engineer}{\textsc{Israeli Navy Intelligence}}{Haifa}{}{
+\cventry{2011-2017}{SW Developer}{\textsc{Israeli Navy Intelligence}}{Haifa}{}{
 \begin{itemize}
 \item Support of computing infrastructure  for a team of experts performing continuous loop of data acquisition, analysis and deployment of information on multiple sites.
-\item Maintenance and further development of an existing Asp.Net/SQL - based solution for computer-aided acoustic recognition.
-\item Development of software and work procedures for robust deployments of said solution and information to multiple  sites.
+\item Maintenance and further development of an existing Asp.Net/SQL - based solution for computer-aided classification.
+\item Development of software and work procedures for robust deployments of mentioned solution and information to multiple  sites.
   \begin{itemize}
   \item Development of custom tool for creating incremental updates for sites lacking network connectivity.
   \end{itemize}
 \item Development of management tools for massive audio recordings database,  with an emphasis on robust  metadata input methods
 \item Extensive maintenance and development with MS SQL database
   \begin{itemize}
+  \item Developing new features
   \item Exposing data discrepancies and fixing them
   \item Development of stored procedures for automatic conversion to different database structure 
   \item Creating backup procedures, performing and supervising server backups
   \end{itemize}
-\item Development of POC data mining software for massive amounts of  acoustic recordings - in collaboration with Rafael; Matlab as main research environment
+\item Development of POC software for mining massive amounts of acoustic data - in collaboration with Rafael; Matlab as main research environment
   \begin{itemize}
   \item Developing statistical algorithms for extraction and interpretation of spectral features in acoustic data 
   \item Database design
@@ -87,7 +90,7 @@
   \item Performance improvement by utilizing parallel/GPU/cluster computing with Matlab tools
   \end{itemize}
 \item Data recovery using 010 editor scripting engine (FAT file system)
-\item Facilitating  version control (GIT) adoption on all team software projects
+\item Facilitating  version control (Git) adoption on all team software projects
 \item Fun side project - Designing modern style icons and insignia for the team
 \item Maintenance officer: maintaining  computing and electronic equipment inventory.
 \end{itemize}
@@ -132,26 +135,44 @@
 
 
 \subsection{Formal}
-\cventry{2015-present}{Data Science Specialization}{Coursera.org}{~160 hours}{\textit{GPA -- 8.0}}{
-Main topics covered in the course:
-  \begin{itemize}
-  \item{Statistical inference, Regression Models, Machine Learning}
-  \item{Exploratory Data Analysis, Reproducible Research, R, Rstudio} 
-  \end{itemize}
-  }
+
   
- \cventry{2007- 2011}{B.Sc,Applied mathematics faculty}{Holon Institute of Technology}{\textit{GPA -- 79.0}}{Applied mathematics faculty, Bioinformatics specialization }{
+\cventry{2007- 2011}{B.Sc,Applied mathematics}{Holon Institute of Technology}{\textit{GPA -- 79.0}}{Applied mathematics faculty, Bioinformatics specialization}{
 Main disciplines learned:
   \begin{itemize}
   \item Mathematical modelling, Approximation theory, Numeric analysis, Mathematical Simulation, GeoInformation systems
   \item Complex functions, Fourier series,
   \item Genetics, Biological Processes, Genetic algorithms, Medical imaging analysis,
-  \item Introduction to programming, Algorithms and data structures, Computer architecture, C\#, .Net,  Matlab
+  \item Programming, algorithms and data structures, Computer architecture, C\#, .Net,  Matlab
   \end{itemize}
   }
+\clearpage  
 \subsection{Courses}  
-\cventry{2015}{Image processing course}{Israel Air Force}{50 hours}{}{}
+% \cventry{2018}{Python for Data Science and Machine Learning Bootcamp}{udemy.com}{30 hours}{\textit{}}{
+% Main topics covered in the course:
+%   \begin{itemize}
+%   \item{Regression, Classification, Clustering}
+%   \item{Association Rule Learning, Reinforcement Learning, Natural Language Processing}
+%   \item{Deep Learning, Dimensionality Reduction, Model Selection} 
+%   \end{itemize}
+%   }
+\cventry{2018}{Introduction to Machine learning}{udemy.com}{50 hours}{}{
+Main topics covered in the course:
+  \begin{itemize}
+  \item{Regression, Classification, Clustering}
+  \item{Association Rule Learning, Reinforcement Learning, Natural Language Processing}
+  \item{Deep Learning, Dimensionality Reduction, Model Selection} 
+  \end{itemize}
+  }
+\cventry{2017-present}{Data Science Specialization}{Coursera.org}{~160 hours}{\textit{GPA -- 8.0}}{
+Main topics covered in the course:
+  \begin{itemize}
+  \item{Statistical inference, Regression Models, Machine Learning}
+  \item{Exploratory Data Analysis, Reproducible Research, R, Rstudio, Markdown, Shiny } 
+  \end{itemize}
+  }
 \cventry{2016}{Software engineering with Matlab}{Navy Mamtam}{40 hours}{}{}
+\cventry{2015}{Image processing course}{Israel Air Force}{50 hours}{}{}
 \cventry{2006}{PC hardware service and maintenance course}{Saint Petersburg City Palace of Youth Creativity}{170 hours}{}{}
 
 %----------------------------------------------------------------------------------------
@@ -167,17 +188,17 @@ Main disciplines learned:
 
 \section{Technologies}
 
-\cvitem{Advanced}{Asp.Net, C\#, Vb, SQL , R, Matlab, git}
-\cvitem{Intermediate}{MSSQL Server, IIS and Windows file server administration, cmd scripting, VirtualBox}
-\cvitem{Basic}{Linux, Ubuntu}
+\cvitem{Advanced}{Asp.Net, C\#, Vb, SQL, R, Matlab}
+\cvitem{Intermediate}{MSSQL Server, IIS and Windows file server administration, cmd scripting, VirtualBox, git}
+\cvitem{Basic}{Python, Linux/Ubuntu, Networking, Machine learning, Deep learning}
 
 %----------------------------------------------------------------------------------------
 %	COMMUNICATION SKILLS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Communication Skills}
+%\section{Communication Skills}
 
-\cvitem{2010}{LOLIDUNNO}
+%\cvitem{2010}{LOLIDUNNO}
 
 %----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
@@ -188,9 +209,10 @@ Main disciplines learned:
 \renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
 
 \begin{cvcolumns}
-  \cvcolumn{Data science}{\begin{itemize}\item Machine learning\item AI\item PC hardware\end{itemize}}
-  \cvcolumn{Category 2}{\begin{itemize}\item Cluster computing\item Time-Frequency analysis\end{itemize}}
-  \cvcolumn[0.5]{ Software development}{\begin{itemize}\item Free and open source software\item elegant and robust algorithms\end{itemize}}
+  \cvcolumn{Data science}{\begin{itemize}\item Machine learning\item AI\item Big Data \end{itemize}}
+  %\cvcolumn{Category 2}{\begin{itemize}\item \item Time-Frequency analysis\end{itemize}}
+  \cvcolumn{Software development}{\begin{itemize}\item Free and open source software \item elegant and robust code \end{itemize}}
+  \cvcolumn{Sports              }{\begin{itemize}\item Rock climbing \item Bicicle \item Krav-maga \end{itemize}}
 \end{cvcolumns}
 % Data science, Machine learning, AI, Cluster computing, Time-Frequency analysis, Software development, Free and open source software, elegant and robust algorithms, PC hardware
 % \cvlistdoubleitem{Piano}{Chess}
@@ -204,7 +226,7 @@ Main disciplines learned:
 \section{Languages}
 
 \cvitemwithcomment{Russian}{Mothertongue}{}
-\cvitemwithcomment{Hebrew}{Conversationally fluent}{Somewhat slow at reading}
+\cvitemwithcomment{Hebrew}{Fluent, a bit slow at reading}{}
 \cvitemwithcomment{English}{Fluent}{}
 
 % Publications from a BibTeX file without multibib
@@ -222,6 +244,12 @@ Main disciplines learned:
 %\nocitemisc{misc1,misc2,misc3}
 %\bibliographystylemisc{plain}
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+
+\begin{comment}
+
+
+
 
 \clearpage
 %-----       letter       ---------------------------------------------------------
@@ -244,7 +272,7 @@ Albert Einstein discovered that $e=mc^2$ in 1905.
 \[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
 
 \makeletterclosing
-
+\end{comment}
 %\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 \end{document}
 

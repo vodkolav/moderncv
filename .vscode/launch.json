@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Make PDF",
+            "type": "pwa-node",
+            "request": "launch",
+            "runtimeExecutable": "/bin/bash",
+            "runtimeArgs": ["-lc", "make pdf"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Clean + Make PDF",
+            "type": "pwa-node",
+            "request": "launch",
+            "runtimeExecutable": "/bin/bash",
+            "runtimeArgs": ["-lc", "make clean && make pdf"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

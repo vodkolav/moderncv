@@ -12,20 +12,17 @@ tex: init
 		echo $$FILE_NAME.tex; \
 		pandoc --standalone --template $(STYLES_DIR)/$(STYLE).tex \
 			--lua-filter=pandoc-filters/moderncv.lua \
-			--from markdown --to context \
-			--variable papersize=A4 \
+			--from markdown --to latex \
 			--output $(OUT_DIR)/$$FILE_NAME.tex $$f > /dev/null; \
 	done
 
-pdf: init
+
+pdf: tex
 	for f in $(IN_DIR)/*.md; do \
 		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
-		echo $$FILE_NAME.pdf; \
-		pandoc --standalone --template $(STYLES_DIR)/$(STYLE).tex \
-			--lua-filter=pandoc-filters/moderncv.lua \
-			--from markdown \
-			--variable papersize=A4 \
-			--output $(OUT_DIR)/$$FILE_NAME.pdf $$f > /dev/null; \
+		echo cooking $$FILE_NAME.pdf; \
+		pdflatex -interaction=nonstopmode -halt-on-error \
+				 -output-directory=$(OUT_DIR) $$FILE_NAME.tex >> pdflatex.log; \
 	done
 
 html: init

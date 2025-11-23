@@ -7,13 +7,12 @@ address:  Mytown, Mycountry
 homepage: www.johndoe.com
 social:
     github: Johnny-Coder
-    linkedin: Johnny-Coder
     twitter: jdoe
+    linkedin: Johnny-Coder
 ---
 
 
-- In this style, the resume starts with a blockquote, where
-you can briefly list your specialties, or include a salient quote.\
+In this style, the resume starts with a blockquote, where you can briefly list your specialties, or include a salient quote.\
 Ending a line with a backslash forces a line break.
 
 
@@ -75,8 +74,13 @@ Basic knowledge  **C**, **x86 assembly**, **forth**, **Common Lisp**
 
 # Languages
 
-    English: native speaker
-    Swahili: so-so
-    This is what a nested list looks like.
+English
+: native speaker | | |
+
+Swahili
+: so-so
+
+This is
+: what a nested list looks like.
 
 

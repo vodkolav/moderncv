@@ -174,11 +174,11 @@ function Pandoc(doc)
 
             for _ = #fields+1, 6 do table.insert(fields, '') end
 
-            local title = escape_tex(fields[2])
-            local institution = escape_tex(fields[3])
-            local city = escape_tex(fields[4])
-            local grade = escape_tex(fields[5])
-            local desc = description_tex ~= '' and description_tex or escape_tex(fields[6])
+            local title = escape_tex(fields[1])
+            local institution = escape_tex(fields[2])
+            local city = escape_tex(fields[3])
+            local grade = escape_tex(fields[4])
+            local desc = description_tex ~= '' and description_tex or escape_tex(fields[5])
 
             local tex = string.format("\\cventry{%s}{%s}{%s}{%s}{%s}{%s}", years, title, institution, city, grade, desc)
             table.insert(out, pandoc.RawBlock('latex', tex))

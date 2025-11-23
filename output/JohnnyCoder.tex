@@ -43,7 +43,7 @@
 % \social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
 % \social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
 % \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{JohnnyC.png}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\photo[64pt][0.4pt]{JohnnyC}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 % \quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
 % bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
@@ -64,17 +64,11 @@
 %-----       resume       ---------------------------------------------------------
 \makecvtitle
 
-\startsectionlevel[title={Johnny Coder},reference={johnny-coder}]
-
-\thinrule
-
 \startblockquote
-In this style, the resume starts with a blockquote, where you can
+IIn this style, the resume starts with a blockquote, where you can
 briefly list your specialties, or include a salient quote. Ending a line
 with a backslash forces a line break.
 \stopblockquote
-
-\thinrule
 
 \startsectionlevel[title={Education},reference={education}]
 
@@ -82,42 +76,27 @@ with a backslash forces a line break.
 
 \startsectionlevel[title={Experience},reference={experience}]
 
-{\bf Your Most Recent Work Experience:}
+\stopsectionlevel
 
-Short text containing the type of work done, results obtained, lessons
-learned and other remarks. Can also include lists and links:
-
-\startitemize
-\item
-  First item
-\item
-  Item with \goto{link}[url(http://www.example.com)]. Links will work
-  both in the html and pdf versions.
-\stopitemize
-
-{\bf That Other Job You Had}
-
-Also with a short description.
+\startsectionlevel[title={Personal
+projects},reference={personal-projects}]
 
 \stopsectionlevel
 
-\startsectionlevel[title={Technical
-Experience},reference={technical-experience}]
+\startsectionlevel[title={Skills},reference={skills}]
+
+Basic knowledge {\bf C}, {\bf x86 assembly}, {\bf forth}, {\bf Common
+Lisp}
 
 \stopsectionlevel
 
-\startsectionlevel[title={Extra Section, Call it Whatever You
-Want},reference={extra-section-call-it-whatever-you-want}]
+\startsectionlevel[title={Languages},reference={languages}]
 
-\thinrule
-
-\startblockquote
-\goto{email@example.com}[url(mailto:email@example.com)] • +00 (0)00 000
-0000 • XX years old\crlf
-address - Mytown, Mycountry
-\stopblockquote
-
-\stopsectionlevel
+\starttyping
+English: native speaker
+Swahili: so-so
+This is what a nested list looks like.
+\stoptyping
 
 \stopsectionlevel
 

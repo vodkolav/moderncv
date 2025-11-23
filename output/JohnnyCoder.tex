@@ -27,24 +27,22 @@
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
-% personal data
+% personal data: allow injected header-includes (from Lua filter/frontmatter)
 \name{Johnny}{Coder}
-\title{Curriculum Vitae}                           % optional, remove / comment the line if not wanted
-\address{Parkwayt drive}{Mytown, Mycountry}             % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
-\phone[mobile]{+00 (0)00 000 0000 }                % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
-% \phone[fixed]{+2~(345)~678~901}
-% \phone[fax]{+3~(456)~789~012}
-\email{email@example.com}                              % optional, remove / comment the line if not wanted
-% \homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
-\social[linkedin]{Johnny-Coder}                        % optional, remove / comment the line if not wanted
-% \social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
-% \social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
-\social[github]{Johnny-Coder}                              % optional, remove / comment the line if not wanted
-% \social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
-% \social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
-% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{JohnnyC}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+\address{Mytown}{Mycountry}{}
+
+\phone[mobile]{+00 (0)00 000 0000}
+
+\email{email@example.com}
+
+\homepage{www.johndoe.com}
+
+\social[github]{Johnny-Coder}
+
+\social[linkedin]{Johnny-Coder}
+
+\social[twitter]{jdoe}
 
 % bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
 %   to show numerical labels in the bibliography (default is to show no labels)
@@ -64,41 +62,58 @@
 %-----       resume       ---------------------------------------------------------
 \makecvtitle
 
-\startblockquote
-IIn this style, the resume starts with a blockquote, where you can
-briefly list your specialties, or include a salient quote. Ending a line
-with a backslash forces a line break.
-\stopblockquote
+\begin{quote}
+\begin{itemize}
+\tightlist
+\item
+  In this style, the resume starts with a blockquote, where you can
+  briefly list your specialties, or include a salient quote.\\
+  Ending a line with a backslash forces a line break.
+\end{itemize}
+\end{quote}
 
-\startsectionlevel[title={Education},reference={education}]
+\section{Education}\label{education}
 
-\stopsectionlevel
+\cventry{2010-2014 (expected)}{PhD, Computer Science}{Awesome University}{MyTown}{}{\begin{itemize}
+\item Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
+\end{itemize}}
 
-\startsectionlevel[title={Experience},reference={experience}]
+\cventry{2007-2010}{BSc, Computer Science and Electrical Engineering}{University of HomeTown}{HomeTown}{}{Minor: Awesomeology}
 
-\stopsectionlevel
+\section{Experience}\label{experience}
 
-\startsectionlevel[title={Personal
-projects},reference={personal-projects}]
+\cventry{2010-2017}{Awesomeness manager}{awesomia}{moon}{}{Short text containing the type of work done, results obtained, lessons learned and other remarks. Can also include lists and links:
+\begin{itemize}
+\item First item
+\item Item with link. Links will work both in the html and pdf versions.
+\end{itemize}}
 
-\stopsectionlevel
+\cventry{2017-2020}{That Other Job You Had}{at company}{Saturn}{}{Also with a short description.}
 
-\startsectionlevel[title={Skills},reference={skills}]
+\section{Personal projects}\label{personal-projects}
 
-Basic knowledge {\bf C}, {\bf x86 assembly}, {\bf forth}, {\bf Common
-Lisp}
+\cventry{Project Title}{language}{github.com/githubuser/superlongprojectname}{}{}{For items which don’t have a clear time ordering, a definition list can be used to have named items.
+\begin{itemize}
+\item These items can also contain lists, but you need to mind the indentation levels in the markdown source.
+\item Second item.
+\end{itemize}}
 
-\stopsectionlevel
+\cventry{Linux Kernel}{javascript}{kernel.org}{}{}{implemented multithreading over a long weekend}
 
-\startsectionlevel[title={Languages},reference={languages}]
+\cventry{node.js}{COBOL}{link}{which was actually totally your idea.}{}{}
 
-\starttyping
+\section{Skills}\label{skills}
+
+Basic knowledge \textbf{C}, \textbf{x86 assembly}, \textbf{forth},
+\textbf{Common Lisp}
+
+\section{Languages}\label{languages}
+
+\begin{verbatim}
 English: native speaker
 Swahili: so-so
 This is what a nested list looks like.
-\stoptyping
-
-\stopsectionlevel
+\end{verbatim}
 
 \end{document}
 

@@ -3,12 +3,17 @@ name: Johnny Coder
 email: email@example.com
 phone:  +00 (0)00 000 0000 
 address:  Mytown, Mycountry
+homepage: www.johndoe.com
+social:
+    linkedin: Johnny-Coder
+    twitter: jdoe
+    github: Johnny-Coder
 ---
 
 
->  IIn this style, the resume starts with a blockquote, where
->  you can briefly list your specialties, or include a salient
->  quote. Ending a line with a backslash forces a line break.
+>  - In this style, the resume starts with a blockquote, where
+>  you can briefly list your specialties, or include a salient quote.\
+>  Ending a line with a backslash forces a line break.
 
 
 # Education

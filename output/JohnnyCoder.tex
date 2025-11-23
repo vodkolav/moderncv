@@ -28,6 +28,8 @@
 %\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data: allow injected header-includes (from Lua filter/frontmatter)
+% provide a fallback for pandoc's \tightlist macro
+\providecommand{\tightlist}{}
 \name{Johnny}{Coder}
 
 \address{Mytown}{Mycountry}{}
@@ -38,9 +40,9 @@
 
 \homepage{www.johndoe.com}
 
-\social[github]{Johnny-Coder}
-
 \social[linkedin]{Johnny-Coder}
+
+\social[github]{Johnny-Coder}
 
 \social[twitter]{jdoe}
 
@@ -62,15 +64,7 @@
 %-----       resume       ---------------------------------------------------------
 \makecvtitle
 
-\begin{quote}
-\begin{itemize}
-\tightlist
-\item
-  In this style, the resume starts with a blockquote, where you can
-  briefly list your specialties, or include a salient quote.\\
-  Ending a line with a backslash forces a line break.
-\end{itemize}
-\end{quote}
+% (blockquote removed for PDF test)
 
 \section{Education}\label{education}
 

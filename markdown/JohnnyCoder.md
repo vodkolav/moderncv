@@ -18,69 +18,69 @@ Ending a line with a backslash forces a line break.
 
 # Education
 
-2010-2014 (expected)
-: **PhD, Computer Science** | Awesome University | MyTown
+### 2010-2014 (expected)
+**PhD, Computer Science** | Awesome University | MyTown
 
-    - Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
+Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
 
 
-2007-2010
-: BSc, Computer Science and Electrical Engineering | University of HomeTown | HomeTown
+### 2007-2010
+BSc, Computer Science and Electrical Engineering | University of HomeTown | HomeTown
 
-    Minor: Awesomeology
+Minor: Awesomeology
 
 # Experience
 
-2010-2017
-: Awesomeness manager | awesomia | moon
+### 2010-2017
+Awesomeness manager | awesomnia | moon
 
-    Short text containing the type of work done, results obtained, lessons learned and other remarks. Can also include lists and links:
+Short text containing the type of work done, results obtained, lessons learned and other remarks. Can also include lists and links:
 
-    - First item
+- First item
+- Item with [link](http://www.example.com). Links will work both in the html and pdf versions.
 
-    * Item with [link](http://www.example.com). Links will work both in the html and pdf versions.
+### 2017-2020
+**That Other Job You Had** | at company | Saturn
 
-2017-2020
-: **That Other Job You Had** | at company | Saturn
-
-    Also with a short description.
+Also with a short description. [http://www.example.com](http://www.example.com). Links will work
 
 # Personal projects
 
-Project Title 
-:   language | [github.com/githubuser/superlongprojectname](https://github.com/githubuser/superlongprojectname)
+### Project Title 
+language | [github.com/githubuser/superlongprojectname](https://github.com/githubuser/superlongprojectname)
 
-    For items which don't have a clear time ordering, a definition
-    list can be used to have named items.
+* For items which don't have a clear time ordering, a definition list can be used to have named items.
 
-    * These items can also contain lists, but you need to mind the
-      indentation levels in the markdown source.
-    * Second item.
+* These items can also contain lists, but you need to mind the indentation levels in the markdown source.
 
-**Linux Kernel**
-: javascript | [kernel.org](kernel.org) 
+* Second item.
 
-    implemented multithreading over a long weekend 
+### **Linux Kernel**
+javascript | [kernel.org](kernel.org) 
 
-**node.js** 
-: COBOL | [link](http://nodejs.org) | which was actually totally your idea.
+implemented multithreading over a long weekend 
 
+### **node.js** 
+|**COBOL** [link](http://nodejs.org) which was actually totally my idea.
 
 # Skills
 
-Basic knowledge  **C**, **x86 assembly**, **forth**, **Common Lisp**
+### Basic knowledge:  
+**C** , **x86 assembly** , **forth** , **Common Lisp** |
 
+### Super advanced knowledge:  
+logo , qtscript , rRust |
 
 
 # Languages
 
-English
-: native speaker | | |
+### English 
+native speaker |
 
-Swahili
-: so-so
+### Swahili: 
+so-so |
 
-This is
-: what a nested list looks like.
+### This is: 
+what a nested list looks like. |
 
 

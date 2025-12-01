@@ -30,23 +30,7 @@
 % personal data: allow injected header-includes (from Lua filter/frontmatter)
 % provide a fallback for pandoc's \tightlist macro
 \providecommand{\tightlist}{}
-\name{Johnny}{Coder}
-
-\title{Curriculum Vitae}
-
-\address{Mytown}{Mycountry}{}
-
-\phone[mobile]{+00 (0)00 000 0000}
-
-\email{email@example.com}
-
-\homepage{www.johndoe.com}
-
-\social[github]{Johnny-Coder}
-
-\social[linkedin]{Johnny-Coder}
-
-\social[twitter]{jdoe}
+\name{Johnny}{Coder}\title{Curriculum Vitae}\address{Mytown}{Mycountry}{}\phone[mobile]{+00 (0)00 000 0000}\email{email@example.com}\homepage{www.johndoe.com}\social[github]{Johnny-Coder}\social[twitter]{jdoe}\social[linkedin]{Johnny-Coder}
 
 % bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
 %   to show numerical labels in the bibliography (default is to show no labels)
@@ -72,46 +56,45 @@ Ending a line with a backslash forces a line break.
 
 \section{Education}\label{education}
 
-\cventry{2010-2014 (expected)}{PhD, Computer Science}{Awesome University}{MyTown}{}{\begin{itemize}
-\item Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
-\end{itemize}}
+\cventry{2010-2014 (expected)}{\textbf{PhD, Computer Science}  Awesome University  MyTown}{}{}{}{Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem}
 
-\cventry{2007-2010}{BSc, Computer Science and Electrical Engineering}{University of HomeTown}{HomeTown}{}{Minor: Awesomeology}
+\cventry{2007-2010}{BSc, Computer Science and Electrical Engineering  University of HomeTown  HomeTown}{}{}{}{Minor: Awesomeology}
 
 \section{Experience}\label{experience}
 
-\cventry{2010-2017}{Awesomeness manager}{awesomia}{moon}{}{Short text containing the type of work done, results obtained, lessons learned and other remarks. Can also include lists and links:
+\cventry{2010-2017}{Awesomeness manager  awesomnia  moon}{}{}{}{Short text containing the type of work done, results obtained, lessons learned and other remarks. Can also include lists and links:
 \begin{itemize}
 \item First item
 \item Item with link. Links will work both in the html and pdf versions.
 \end{itemize}}
 
-\cventry{2017-2020}{That Other Job You Had}{at company}{Saturn}{}{Also with a short description.}
+\cventry{2017-2020}{\textbf{That Other Job You Had}  at company  Saturn}{}{}{}{Also with a short description. \href{http://www.example.com}{http://www.example.com}. Links will work}
 
 \section{Personal projects}\label{personal-projects}
 
-\cventry{Project Title}{language}{github.com/githubuser/superlongprojectname}{}{}{For items which don’t have a clear time ordering, a definition list can be used to have named items.
-\begin{itemize}
+\cventry{Project Title}{language  \href{https://github.com/githubuser/superlongprojectname}{github.com/githubuser/superlongprojectname}}{}{}{}{\begin{itemize}
+\item For items which don’t have a clear time ordering, a definition list can be used to have named items.
 \item These items can also contain lists, but you need to mind the indentation levels in the markdown source.
 \item Second item.
 \end{itemize}}
 
-\cventry{Linux Kernel}{javascript}{kernel.org}{}{}{implemented multithreading over a long weekend}
+\cventry{Linux Kernel}{javascript  \href{kernel.org}{kernel.org}}{}{}{}{implemented multithreading over a long weekend}
 
-\cventry{node.js}{COBOL}{link}{which was actually totally your idea.}{}{}
+\cvitem{node.js}{\textbf{COBOL} \href{http://nodejs.org}{link} which was actually totally my idea.}
 
 \section{Skills}\label{skills}
 
-Basic knowledge \textbf{C}, \textbf{x86 assembly}, \textbf{forth},
-\textbf{Common Lisp}
+\cvitem{Basic knowledge:}{\textbf{C} , \textbf{x86 assembly} , \textbf{forth} , \textbf{Common Lisp} }
+
+\cvitem{Super advanced knowledge:}{logo , qtscript , rRust }
 
 \section{Languages}\label{languages}
 
-\cventry{English}{native speaker}{}{}{}{}
+\cvitem{English}{native speaker }
 
-\cventry{Swahili}{so-so}{}{}{}{}
+\cvitem{Swahili:}{so-so }
 
-\cventry{This is}{what a nested list looks like.}{}{}{}{}
+\cvitem{This is:}{what a nested list looks like. }
 
 \end{document}
 

@@ -1,303 +1,224 @@
--- pandoc-filters/moderncv.lua
--- Convert a bullet list directly following a header into a sequence of \cventry LaTeX commands.
---
--- Usage:
---   pandoc resume.md --template=moderncv.tex --lua-filter=pandoc-filters/moderncv.lua -o resume.pdf
---
--- Markdown convention expected for each list item under a section:
---   - years | title | institution | city | grade | description
--- Any of the six fields may be left empty (use consecutive pipes). The "description"
--- field may contain more text; additional paragraphs or nested lists in the item will
--- be concatenated and used as the last argument of \cventry.
+-- Minimal Pandoc Lua filter for moderncv
+-- Converts DefinitionList entries into \cventry or \cvitem* macros
 
-local List = require('pandoc.List')
-
-local function trim(s)
-  return (s:gsub("^%s+", ""):gsub("%s+$", ""))
+local function debug_log(msg)
+  local log_file = io.open("debug_log.txt", "a")
+  log_file:write(msg .. "\n")
+  log_file:close()
 end
 
+local stringify = (require 'pandoc.utils').stringify
+
 local function escape_tex(s)
-  -- minimal TeX escaping for special characters
-  s = s or ""
+  if not s then return '' end  -- Handle nil values
   s = s:gsub('\\', '\\textbackslash{}')
-  s = s:gsub('{','\\{')
-  s = s:gsub('}','\\}')
+  s = s:gsub('%%', '\\%')
+  s = s:gsub('{', '\\{')
+  s = s:gsub('}', '\\}')
+  s = s:gsub('#', '\\#')
   s = s:gsub('%$', '\\$')
-  s = s:gsub('%%','\\%')
-  s = s:gsub('#','\\#')
-  s = s:gsub('&','\\&')
-  s = s:gsub('_','\\_')
-  s = s:gsub('%^','\\^{}')
-  s = s:gsub('~','\\~{}')
+  s = s:gsub('&', '\\&')
+  s = s:gsub('_', '\\_')
   return s
 end
 
-local function para_text(blocks)
-  -- concatenate block content into plain text
+local function inlines_to_tex(inlines)
+  debug_log("Processing inlines: " .. stringify(inlines))
+  local out = {}
+  for _, el in ipairs(inlines) do
+    if el.t == 'Str' then
+      table.insert(out, escape_tex(el.c))
+    elseif el.t == 'Space' or el.t == 'SoftBreak' then
+      table.insert(out, ' ')
+    elseif el.t == 'LineBreak' then
+      table.insert(out, '\\\\')
+    elseif el.t == 'Emph' then
+      table.insert(out, '\\textit{' .. inlines_to_tex(el.c) .. '}')
+    elseif el.t == 'Strong' then
+      table.insert(out, '\\textbf{' .. inlines_to_tex(el.c) .. '}')
+    elseif el.t == 'Code' then
+      table.insert(out, '\\texttt{' .. escape_tex(el.c) .. '}')
+    elseif el.t == 'Link' then
+      local url = escape_tex(el.target or '')
+      local txt = inlines_to_tex(el.c or {})
+      table.insert(out, '\\href{' .. url .. '}{' .. txt .. '}')
+    else
+      table.insert(out, escape_tex(stringify(el)))
+    end
+  end
+  return table.concat(out)
+end
+
+local function blocks_to_tex(blocks)
+  debug_log("Processing blocks: " .. stringify(blocks))
   local parts = {}
   for _, b in ipairs(blocks) do
-    table.insert(parts, pandoc.utils.stringify(b))
-  end
-  return table.concat(parts, "\n")
-end
-
-local function escape_tex_inline(s)
-  return escape_tex(s):gsub('\n','\\\\')
-end
-
-local function list_item_to_tex(item_blocks)
-  -- item_blocks is an array of blocks forming one list item
-  -- stringify the non-list parts and convert nested lists recursively
-  local parts = {}
-  for _, b in ipairs(item_blocks) do
-    if b.t == 'BulletList' or b.t == 'OrderedList' then
-      -- nested list: convert recursively
-      table.insert(parts, list_to_tex(b))
+    if b.t == 'Para' then
+      table.insert(parts, inlines_to_tex(b.c) .. '\n')
+    elseif b.t == 'BulletList' then
+      table.insert(parts, '\\begin{itemize}\n')
+      for _, item in ipairs(b.c or {}) do
+        table.insert(parts, '\\item ' .. blocks_to_tex(item):gsub('\n$', '') .. '\n')
+      end
+      table.insert(parts, '\\end{itemize}\n')
+    elseif b.t == 'OrderedList' then
+      table.insert(parts, '\\begin{enumerate}\n')
+      for _, item in ipairs(b.c or {}) do
+        table.insert(parts, '\\item ' .. blocks_to_tex(item):gsub('\n$', '') .. '\n')
+      end
+      table.insert(parts, '\\end{enumerate}\n')
     else
-      table.insert(parts, pandoc.utils.stringify(b))
+      table.insert(parts, escape_tex(stringify(b)))
     end
   end
-  return table.concat(parts, ' ')
+  return table.concat(parts)
 end
 
-function list_to_tex(list_block)
-  -- converts a BulletList or OrderedList block to LaTeX itemize/enumerate
-  local env = (list_block.t == 'OrderedList') and 'enumerate' or 'itemize'
-  local out = {'\\begin{' .. env .. '}'}
-  for _, item in ipairs(list_block.content) do
-    -- item is an array of blocks
-    local txt = list_item_to_tex(item)
-    table.insert(out, '\\item ' .. escape_tex_inline(txt))
+local function repr(obj)
+  if type(obj) == "table" then
+    local s = "{ "
+    for k, v in pairs(obj) do
+      local key = type(k) == "string" and '"' .. k .. '"' or k
+      s = s .. "[" .. key .. "] = " .. repr(v) .. ", "
+    end
+    return s .. "}"
+  elseif type(obj) == "string" then
+    return '"' .. obj .. '"'
+  else
+    return tostring(obj)
   end
-  table.insert(out, '\\end{' .. env .. '}')
-  return table.concat(out, '\n')
 end
 
-function Pandoc(doc)
-  local blocks = doc.blocks
-  local out = List{}
-  local i = 1
-  while i <= #blocks do
-    local b = blocks[i]
-    if b.t == 'Header' then
-      table.insert(out, b)
-      -- check next block is a bullet list
-      local nextb = blocks[i+1]
-      if nextb and nextb.t == 'BulletList' then
-        -- convert each list item to a \cventry raw LaTeX block
-        for _, item in ipairs(nextb.content) do
-          -- item is a list of blocks; first paragraph expected to contain the pipe-separated fields
-          local first = item[1]
-          local fields = {}
-          if first and first.t == 'Para' then
-            local s = pandoc.utils.stringify(first)
-            -- split by pipe
-            for part in s:gmatch("[^|]+") do
-              table.insert(fields, trim(part))
-            end
-          else
-            -- fallback: stringify whole item
-            local s = para_text(item)
-            for part in s:gmatch("[^|]+") do
-              table.insert(fields, trim(part))
-            end
-          end
 
-          -- collect description: everything except first paragraph (or the remainder of the first para after the 6th field)
-          local description = ''
-          if #item > 1 then
-            description = para_text({table.unpack(item,2)})
-          else
-            -- if the first paragraph had more than 6 pipe parts, join parts[7..] into description
-            if #fields > 6 then
-              local rest = {}
-              for k = 7, #fields do table.insert(rest, fields[k]) end
-              description = table.concat(rest, ' | ')
-              for _ = 7, #fields do table.remove(fields) end
-            end
-          end
+local function attrs(obj)
+  if type(obj) == "userdata" then
+    out = "userdata["
+    for key, value in pairs(obj) do
+      out = out .. "\n" .. key .. "(".. type(value) ..")=" .. repr(value)
+    end
+    out = out .. "\n]"
+  elseif type(obj) == "table" then
+    out = "table["
+    for key, value in pairs(obj) do
+      out = out .. "\n" .. key .. "(".. type(value) ..")=" .. repr(value)
+    end
+    out = out .. "\n]"
+    
+  else
+    out = "(" .. type(obj) .. ")=" .. repr(obj)
+  end
+  return out
+end
 
-          -- ensure six fields
-          for _ = #fields+1, 6 do table.insert(fields, '') end
+local function split_inlines_by_sep(inlines)
+  local sep = "|"
+  local groups, current = {}, {}
+  for b, el in ipairs(inlines) do
+    if el.t == 'Str' and  el.text == sep then
+      -- if type(el) == 'userdata' then
+      --   elc = el.c or 'nul'
+      --   debug_log("el: " .. attrs(el) .. " el.c:" .. elc .. " type(el.c):" .. type(el.c) .. " el.t: " .. el.t)
+      -- end
+        table.insert(groups, current)
+        current = {}
+      -- else
+      --   table.insert(current, el)
+      --end
+    else
+      table.insert(current, el)
+    end
+  end
+  table.insert(groups, current)
+  return groups
+end
 
-          local years = escape_tex(fields[1])
-          local title = escape_tex(fields[2])
-          local institution = escape_tex(fields[3])
-          local city = escape_tex(fields[4])
-          local grade = escape_tex(fields[5])
-          local desc = escape_tex(description ~= '' and description or fields[6])
 
-          local tex = string.format("\\cventry{%s}{%s}{%s}{%s}{%s}{%s}", years, title, institution, city, grade, desc)
-          table.insert(out, pandoc.RawBlock('latex', tex))
+function DefinitionList(el)
+  local out = {}
+  for _, item in ipairs(el.c or {}) do
+    local term, definitions = item[1], item[2]
+    local term_tex = pandoc.utils.stringify(term or {})
+
+    if #definitions == 0 then
+      -- No definitions, produce \cvitem with an empty description
+      table.insert(out, pandoc.RawBlock('latex', '\\cvitem{' .. term_tex .. '}{ }'))
+    else
+      local first_def = definitions[1]
+      local fields, description_blocks = {}, {}
+
+      if first_def[1] and first_def[1].t == 'Para' then
+        -- Split the first paragraph into fields using the separator
+        -- debug_log("first_def" .. stringify(first_def) .. " el.t:" .. first_def.t)
+        fields = split_inlines_by_sep(first_def[1].c)
+
+        for i, j in ipairs(fields) do
+          debug_log("i:" .. i .. "Field: " .. stringify(j) .. " j.t:" .. stringify( j.t or {}))
         end
-        i = i + 2
-      elseif nextb and nextb.t == 'DefinitionList' then
-        -- handle Pandoc definition lists where term is years and definition contains the details
-        for _, entry in ipairs(nextb.content) do
-          local term_inlines = entry[1]
-          local defs = entry[2] -- defs is a list of definition blocks (each definition is a list of blocks)
-          local years = escape_tex(pandoc.utils.stringify(term_inlines))
-          if #defs >= 1 then
-            local def_blocks = defs[1] -- first definition (array of blocks)
-            local fields = {}
-            local first = def_blocks[1]
-            if first and first.t == 'Para' then
-              local s = pandoc.utils.stringify(first)
-              for part in s:gmatch("[^|]+") do table.insert(fields, trim(part)) end
-            else
-              local s = para_text(def_blocks)
-              for part in s:gmatch("[^|]+") do table.insert(fields, trim(part)) end
-            end
+        -- debug_log("Fields: " .. fields)
+        -- debug_log("Description Blocks: " .. description_blocks)
 
-            -- description: blocks after the first para inside the definition
-            local description_tex = ''
-            if #def_blocks > 1 then
-              local parts = {}
-              for idx = 2, #def_blocks do
-                local db = def_blocks[idx]
-                if db.t == 'BulletList' or db.t == 'OrderedList' then
-                  table.insert(parts, list_to_tex(db))
-                else
-                  table.insert(parts, escape_tex(pandoc.utils.stringify(db)))
-                end
-              end
-              description_tex = table.concat(parts, '\n')
-            else
-              -- if too many pipe fields, take ones beyond 6 as description
-              if #fields > 6 then
-                local rest = {}
-                for k = 7, #fields do table.insert(rest, fields[k]) end
-                description_tex = escape_tex(table.concat(rest, ' | '))
-                for _ = 7, #fields do table.remove(fields) end
-              end
-            end
-
-            for _ = #fields+1, 6 do table.insert(fields, '') end
-
-            local title = escape_tex(fields[1])
-            local institution = escape_tex(fields[2])
-            local city = escape_tex(fields[3])
-            local grade = escape_tex(fields[4])
-            local desc = description_tex ~= '' and description_tex or escape_tex(fields[5])
-
-            local tex = string.format("\\cventry{%s}{%s}{%s}{%s}{%s}{%s}", years, title, institution, city, grade, desc)
-            table.insert(out, pandoc.RawBlock('latex', tex))
-          end
+        for i = 2, #first_def do
+          table.insert(description_blocks, first_def[i])
         end
-        i = i + 2
+      end
+
+      for i = 2, #definitions do
+        for _, block in ipairs(definitions[i] or {}) do
+          table.insert(description_blocks, block)
+        end
+      end
+
+      if #description_blocks > 0 then
+        -- If there are block elements, produce \cventry
+        local desc = pandoc.write(pandoc.Pandoc(description_blocks), 'latex')
+        -- desc = string.format("\\parbox[t]{\\textwidth}{%s}", desc)  -- Wrap in \parbox
+        -- desc = string.format("\\begin{minipage}[t]{\\textwidth}%s\\end{minipage}", desc)
+        desc = desc:gsub("\n\n", "\n")
+        debug_log("desc:" .. desc)
+        table.insert(out, pandoc.RawBlock('latex', string.format(
+          '\\cventry{%s}{%s}{%s}{%s}{%s}{%s}',
+          term_tex,  -- Term
+          pandoc.utils.stringify(fields[1] or '') ,  -- Field 1
+          pandoc.utils.stringify(fields[2] or '') ,  -- Field 2
+          pandoc.utils.stringify(fields[3] or '') ,  -- Field 3
+          pandoc.utils.stringify(fields[4] or '') ,  -- Field 4
+          desc              -- Description
+        )))
       else
-        i = i + 1
-      end
-    else
-      table.insert(out, b)
-      i = i + 1
-    end
-  end
-  doc.blocks = out
-  return doc
-end
-
--- End of filter
-
--- Inject frontmatter as LaTeX macros into header-includes so they appear in the preamble
-function Meta(meta)
-  local blocks = {}
-
-  local function mstr(key)
-    local v = meta[key]
-    if not v then return nil end
-    return pandoc.utils.stringify(v)
-  end
-
-  local function split_name(s)
-    if not s or s == '' then return nil, nil end
-    local first, rest = s:match('^(%S+)%s+(.+)$')
-    if first then return first, rest end
-    return s, ''
-  end
-
-  local function split_comma(s)
-    if not s then return {} end
-    local parts = {}
-    for part in s:gmatch('[^,]+') do
-      parts[#parts+1] = trim(part)
-    end
-    return parts
-  end
-
-  -- name: prefer explicit firstname/lastname, else split `name`
-  local firstname = mstr('firstname')
-  local lastname = mstr('lastname')
-  if not firstname and not lastname then
-    local n = mstr('name')
-    if n then firstname, lastname = split_name(n) end
-  end
-  if firstname or lastname then
-    firstname = firstname or ''
-    lastname = lastname or ''
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\name{%s}{%s}', escape_tex(firstname), escape_tex(lastname))))
-  end
-
-  -- title
-  local title = mstr('title')
-  if title and title ~= '' then
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\title{%s}', escape_tex(title))))
-  end
-
-  -- address: stringify and split on commas into up to three parts
-  if meta['address'] then
-    local addr_raw = pandoc.utils.stringify(meta['address'])
-    local parts = split_comma(addr_raw)
-    local street = parts[1] or ''
-    local city = parts[2] or ''
-    local country = parts[3] or ''
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\address{%s}{%s}{%s}', escape_tex(street), escape_tex(city), escape_tex(country))))
-  end
-
-  -- phones: support either single `phone` or a map `phones`
-  local phone = mstr('phone')
-  if phone and phone ~= '' then
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\phone[mobile]{%s}', escape_tex(phone))))
-  end
-  if meta['phones'] then
-    for k, v in pairs(meta['phones']) do
-      local num = pandoc.utils.stringify(v)
-      if num and num ~= '' then
-        table.insert(blocks, pandoc.RawBlock('latex', string.format('\\phone[%s]{%s}', escape_tex(k), escape_tex(num))))
-      end
-    end
-  end
-
-  -- email
-  local email = mstr('email')
-  if email and email ~= '' then
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\email{%s}', escape_tex(email))))
-  end
-
-  -- homepage
-  local homepage = mstr('homepage') or mstr('url')
-  if homepage and homepage ~= '' then
-    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\homepage{%s}', escape_tex(homepage))))
-  end
-
-  -- social: expect a map of type -> account or url
-  if meta['social'] then
-    for k, v in pairs(meta['social']) do
-      local account = pandoc.utils.stringify(v)
-      if account and account ~= '' then
-        -- if looks like a url, put it as url argument; else as account
-        if account:match('^https?://') then
-          table.insert(blocks, pandoc.RawBlock('latex', string.format('\\social[%s]{%s}', escape_tex(k), escape_tex(account))))
+        -- If no block elements, produce \cvitem family
+        if #fields == 0 then
+          table.insert(out, pandoc.RawBlock('latex', string.format(
+            '\\cvitem{%s}{}',
+            term_tex
+          )))
+        elseif #fields == 1 then
+          table.insert(out, pandoc.RawBlock('latex', string.format(
+            '\\cvitem{%s}{%s}',
+            term_tex, pandoc.utils.stringify(fields[1])
+          )))
+        elseif #fields == 2 then
+          table.insert(out, pandoc.RawBlock('latex', string.format(
+            '\\cvitemwithcomment{%s}{%s}{%s}',
+            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2])
+          )))
+        elseif #fields == 3 then
+          table.insert(out, pandoc.RawBlock('latex', string.format(
+            '\\cvdoubleitem{%s}{%s}{%s}{%s}',
+            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2]), pandoc.utils.stringify(fields[3])
+          )))
         else
-          table.insert(blocks, pandoc.RawBlock('latex', string.format('\\social[%s]{%s}', escape_tex(k), escape_tex(account))))
+          table.insert(out, pandoc.RawBlock('latex', string.format(
+            '\\cvdoubleitem{%s}{%s}{%s}{%s}',
+            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2]), table.concat(fields, ' ', 3)
+          )))
         end
       end
     end
   end
-
-  -- append to header-includes (create or extend)
-  local hi = meta['header-includes'] or {}
-  for _, b in ipairs(blocks) do table.insert(hi, b) end
-  meta['header-includes'] = hi
-  return meta
+  return out
 end
+
+
+return {
+  { DefinitionList = DefinitionList }
+}

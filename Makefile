@@ -13,16 +13,16 @@ tex: init
 		pandoc --standalone --template $(STYLES_DIR)/$(STYLE).tex \
 			--lua-filter=pandoc-filters/moderncv.lua \
 			--from markdown --to latex \
-			--output $(OUT_DIR)/$$FILE_NAME.tex $$f > /dev/null; \
+			--output $(OUT_DIR)/$$FILE_NAME.tex $$f > dbg_lua.log; \
 	done
 
 
-pdf: tex
+pdf: 
 	for f in $(IN_DIR)/*.md; do \
 		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
 		echo cooking $$FILE_NAME.pdf; \
 		pdflatex -interaction=nonstopmode -halt-on-error \
-				 -output-directory=$(OUT_DIR) $$FILE_NAME.tex >> pdflatex.log; \
+				 -output-directory=$(OUT_DIR) $(OUT_DIR)/$$FILE_NAME.tex >> pdflatex.log; \
 	done
 
 html: init

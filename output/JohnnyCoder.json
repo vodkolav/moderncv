@@ -1,0 +1,2005 @@
+{
+  "pandoc-api-version": [
+    1,
+    23,
+    1
+  ],
+  "meta": {
+    "address": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Mytown,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Mycountry"
+        }
+      ]
+    },
+    "email": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "email@example.com"
+        }
+      ]
+    },
+    "homepage": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "www.johndoe.com"
+        }
+      ]
+    },
+    "name": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Johnny"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Coder"
+        }
+      ]
+    },
+    "phone": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "+00"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(0)00"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "000"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "0000"
+        }
+      ]
+    },
+    "social": {
+      "t": "MetaMap",
+      "c": {
+        "github": {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "Str",
+              "c": "Johnny-Coder"
+            }
+          ]
+        },
+        "linkedin": {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "Str",
+              "c": "Johnny-Coder"
+            }
+          ]
+        },
+        "twitter": {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "Str",
+              "c": "jdoe"
+            }
+          ]
+        }
+      }
+    },
+    "title": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Curriculum"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Vitae"
+        }
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "In"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "this"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "style,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "resume"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "starts"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "with"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "a"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "blockquote,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "where"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "you"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "can"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "briefly"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "list"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "your"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "specialties,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "or"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "include"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "a"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "salient"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "quote."
+        },
+        {
+          "t": "LineBreak"
+        },
+        {
+          "t": "Str",
+          "c": "Ending"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "a"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "line"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "with"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "a"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "backslash"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "forces"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "a"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "line"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "break."
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "education",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Education"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "DefinitionList",
+      "c": [
+        [
+          [
+            {
+              "t": "Str",
+              "c": "2010-2014"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "(expected)"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "PhD,"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Computer"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Science"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Awesome"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "University"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "MyTown"
+                  }
+                ]
+              },
+              {
+                "t": "BulletList",
+                "c": [
+                  [
+                    {
+                      "t": "Plain",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "Thesis"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "title:"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Deep"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Learning"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Approaches"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "to"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "the"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Self-Awesomeness"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Estimation"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Problem"
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Str",
+              "c": "2007-2010"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "BSc,"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Computer"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Science"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "and"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Electrical"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Engineering"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "University"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "of"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "HomeTown"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "HomeTown"
+                  }
+                ]
+              },
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "Minor:"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Awesomeology"
+                  }
+                ]
+              }
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "experience",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Experience"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "DefinitionList",
+      "c": [
+        [
+          [
+            {
+              "t": "Str",
+              "c": "2010-2017"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "Awesomeness"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "manager"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "awesomia"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "moon"
+                  }
+                ]
+              },
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "Short"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "text"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "containing"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "the"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "type"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "of"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "work"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "done,"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "results"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "obtained,"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "lessons"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "learned"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "and"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "other"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "remarks."
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Can"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "also"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "include"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "lists"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "and"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "links:"
+                  }
+                ]
+              },
+              {
+                "t": "BulletList",
+                "c": [
+                  [
+                    {
+                      "t": "Para",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "First"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "item"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "t": "Para",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "Item"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "with"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Link",
+                          "c": [
+                            [
+                              "",
+                              [],
+                              []
+                            ],
+                            [
+                              {
+                                "t": "Str",
+                                "c": "link"
+                              }
+                            ],
+                            [
+                              "http://www.example.com",
+                              ""
+                            ]
+                          ]
+                        },
+                        {
+                          "t": "Str",
+                          "c": "."
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "Links"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "will"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "work"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "both"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "in"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "the"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "html"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "and"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "pdf"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "versions."
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Str",
+              "c": "2017-2020"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "That"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Other"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Job"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "You"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Had"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "at"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "company"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "Saturn"
+                  }
+                ]
+              },
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "Also"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "with"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "a"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "short"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "description."
+                  }
+                ]
+              }
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "personal-projects",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Personal"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "projects"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "DefinitionList",
+      "c": [
+        [
+          [
+            {
+              "t": "Str",
+              "c": "Project"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Title"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "language"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Link",
+                    "c": [
+                      [
+                        "",
+                        [],
+                        []
+                      ],
+                      [
+                        {
+                          "t": "Str",
+                          "c": "github.com/githubuser/superlongprojectname"
+                        }
+                      ],
+                      [
+                        "https://github.com/githubuser/superlongprojectname",
+                        ""
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "For"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "items"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "which"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "don’t"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "have"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "a"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "clear"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "time"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "ordering,"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "a"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "definition"
+                  },
+                  {
+                    "t": "SoftBreak"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "list"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "can"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "be"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "used"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "to"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "have"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "named"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "items."
+                  }
+                ]
+              },
+              {
+                "t": "BulletList",
+                "c": [
+                  [
+                    {
+                      "t": "Para",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "These"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "items"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "can"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "also"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "contain"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "lists,"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "but"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "you"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "need"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "to"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "mind"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "the"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "indentation"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "levels"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "in"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "the"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "markdown"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "source."
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "t": "Para",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "Second"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "item."
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Strong",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Linux"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Kernel"
+                }
+              ]
+            }
+          ],
+          [
+            [
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "javascript"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Link",
+                    "c": [
+                      [
+                        "",
+                        [],
+                        []
+                      ],
+                      [
+                        {
+                          "t": "Str",
+                          "c": "kernel.org"
+                        }
+                      ],
+                      [
+                        "kernel.org",
+                        ""
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "t": "Para",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "implemented"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "multithreading"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "over"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "a"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "long"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "weekend"
+                  }
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Strong",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "node.js"
+                }
+              ]
+            }
+          ],
+          [
+            [
+              {
+                "t": "Plain",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "COBOL"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Link",
+                    "c": [
+                      [
+                        "",
+                        [],
+                        []
+                      ],
+                      [
+                        {
+                          "t": "Str",
+                          "c": "link"
+                        }
+                      ],
+                      [
+                        "http://nodejs.org",
+                        ""
+                      ]
+                    ]
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "which"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "was"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "actually"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "totally"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "your"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "idea."
+                  }
+                ]
+              }
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "skills",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Skills"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "DefinitionList",
+      "c": [
+        [
+          [
+            {
+              "t": "Str",
+              "c": "Basic"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "knowledge"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Plain",
+                "c": [
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "C"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "Str",
+                    "c": ","
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "x86"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "assembly"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "Str",
+                    "c": ","
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "forth"
+                      }
+                    ]
+                  },
+                  {
+                    "t": "Str",
+                    "c": ","
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Strong",
+                    "c": [
+                      {
+                        "t": "Str",
+                        "c": "Common"
+                      },
+                      {
+                        "t": "Space"
+                      },
+                      {
+                        "t": "Str",
+                        "c": "Lisp"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "languages",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Languages"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "DefinitionList",
+      "c": [
+        [
+          [
+            {
+              "t": "Str",
+              "c": "English"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Plain",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "native"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "speaker"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "|"
+                  }
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Str",
+              "c": "Swahili"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Plain",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "so-so"
+                  }
+                ]
+              }
+            ]
+          ]
+        ],
+        [
+          [
+            {
+              "t": "Str",
+              "c": "This"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "is"
+            }
+          ],
+          [
+            [
+              {
+                "t": "Plain",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "what"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "a"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "nested"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "list"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "looks"
+                  },
+                  {
+                    "t": "Space"
+                  },
+                  {
+                    "t": "Str",
+                    "c": "like."
+                  }
+                ]
+              }
+            ]
+          ]
+        ]
+      ]
+    }
+  ]
+}

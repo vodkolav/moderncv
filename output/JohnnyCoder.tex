@@ -67,19 +67,16 @@
 \makecvtitle
 
 In this style, the resume starts with a blockquote, where you can
-briefly list your specialties, or include a salient quote.\\
+briefly list your specialties,\\
+\texttt{or\ include\ a\ salient\ quote}\strut \\
 Ending a line with a backslash forces a line break.
 
 \section{Education}\label{education}
 
-\cventry{2010-2014 (expected)}{PhD, Computer Science }{ Awesome University }{ MyTown}{}{\begin{itemize}
-\tightlist
-\item
-  Thesis title: Deep Learning Approaches to the Self-Awesomeness
-  Estimation Problem
-\end{itemize}}
+\cventry{2010-2014 (expected)}{\textbf{PhD, Computer Science}}{Awesome University}{MyTown}{}{Thesis title: Deep Learning Approaches to the Self-Awesomeness
+Estimation Problem}
 
-\cventry{2007-2010}{BSc, Computer Science and Electrical Engineering }{ University of HomeTown }{ HomeTown}{}{\begin{itemize}
+\cventry{2007-2010}{BSc, Computer Science and Electrical Engineering}{University of HomeTown}{HomeTown}{}{\begin{itemize}
 \item
   Minor: Awesomeology
 \item
@@ -88,7 +85,7 @@ Ending a line with a backslash forces a line break.
 
 \section{Experience}\label{experience}
 
-\cventry{2010-2017}{Awesomeness manager }{ awesomia }{ moon}{}{Short text containing the type of work done, results obtained, lessons
+\cventry{2010-2017}{Awesomeness manager}{awesomia}{moon}{}{Short text containing the type of work done, results obtained, lessons
 learned and other remarks. Can also include lists and links:
 \begin{itemize}
 \item
@@ -98,36 +95,47 @@ learned and other remarks. Can also include lists and links:
   the html and pdf versions.
 \end{itemize}}
 
-\cventry{2017-2020}{That Other Job You Had }{ at company }{ Saturn}{}{Also with a short description.\\
+\cventry{2017-2020}{\textbf{That Other Job You Had}}{at company}{Saturn}{}{Also with a short description.\\
 And more description}
 
 \section{Personal projects}\label{personal-projects}
 
-\cventry{Project Title}{language }{ github.com/githubuser/superlongprojectname}{}{}{For items which don't have a clear time ordering, a definition list can
+\cventry{Awesomizer}{\href{https://github.com/githubuser/superlongprojectname}{github.com/githubuser/superlongprojectname}}{\href{https://en.wikipedia.org/wiki/LOLCODE}{LOLCODE}}{}{}{For items which don't have a clear time ordering, a definition list can
 be used to have named items.
 \begin{itemize}
 \item
-  These items can also contain lists, but you need to mind the
-  indentation levels in the markdown source.
+  These items can also contain lists
+  \begin{itemize}
+  \item
+    And nested lists
+    \begin{itemize}
+    \tightlist
+    \item
+      But you need to mind the indentation levels in the markdown
+      source.
+    \end{itemize}
+  \end{itemize}
 \item
   Second item.
 \end{itemize}}
 
-\cventry{Linux Kernel}{javascript }{ kernel.org}{}{}{implemented multithreading over a long weekend}
+\cventry{\textbf{Linux Kernel}}{\url{kernel.org}}{JavaScript}{}{}{implemented multithreading over a long weekend}
 
-\cvitem{node.js}{}
+\cvdoubleitem{\href{http://nodejs.org}{\textbf{node.js}}}{which was actually totally my idea.}{\textbf{COBOL}}{I invented it}
+
+\cvitem{Special relativity}{derived the famous equation \(E=mc^2\) in my spare time}
 
 \section{Skills}\label{skills}
 
-\cvitem{Basic knowledge}{}
+\cvitem{Basic knowledge}{\textbf{C} , x86 assembly, \textbf{forth}, Common Lisp}
+
+\cvitem{Advanced knowledge}{Lua , \textbf{Pandoc}, \LaTeX{}}
 
 \section{Languages}\label{languages}
 
-\cvitem{English}{}
+\cvitem{Swahili}{native speaker}
 
-\cvitem{Swahili}{}
-
-\cvitem{This is}{}
+\cvitem{English}{so-so}
 
 \end{document}
 

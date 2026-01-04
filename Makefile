@@ -17,7 +17,7 @@ tex: init
 	done
 
 
-pdf: 
+pdf: tex
 	for f in $(IN_DIR)/*.md; do \
 		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
 		echo cooking $$FILE_NAME.pdf; \

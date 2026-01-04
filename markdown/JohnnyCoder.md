@@ -2,7 +2,7 @@
 name: Johnny Coder
 title: Curriculum Vitae
 email: email@example.com
-phone:  +00 (0)00 000 0000 
+phone:  +00 (0)12 345 6789
 address:  Mytown, Mycountry
 homepage: www.johndoe.com
 social:
@@ -11,8 +11,8 @@ social:
     linkedin: Johnny-Coder
 ---
 
-
-In this style, the resume starts with a blockquote, where you can briefly list your specialties, or include a salient quote.\
+In this style, the resume starts with a blockquote, where you can briefly list your specialties, \
+```or include a salient quote```\
 Ending a line with a backslash forces a line break.
 
 
@@ -21,7 +21,7 @@ Ending a line with a backslash forces a line break.
 2010-2014 (expected)
 : **PhD, Computer Science** | Awesome University | MyTown
 
-    - Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
+    Thesis title: Deep Learning Approaches to the Self-Awesomeness Estimation Problem
 
 
 2007-2010
@@ -51,40 +51,44 @@ Ending a line with a backslash forces a line break.
 
 # Personal projects
 
-Project Title 
-:   language | [github.com/githubuser/superlongprojectname](https://github.com/githubuser/superlongprojectname)
+Awesomizer
+:   [github.com/githubuser/superlongprojectname](https://github.com/githubuser/superlongprojectname) | [LOLCODE](https://en.wikipedia.org/wiki/LOLCODE)
 
     For items which don't have a clear time ordering, a definition list can be used to have named items.
 
-    * These items can also contain lists, but you need to mind the indentation levels in the markdown source.
+    * These items can also contain lists
+
+        - And nested lists
+
+            * But you need to mind the indentation levels in the markdown source.
 
     * Second item.
 
 **Linux Kernel**
-: javascript | [kernel.org](kernel.org) 
+: [kernel.org](kernel.org) | JavaScript 
 
     implemented multithreading over a long weekend 
 
-**node.js** 
-: COBOL | [link](http://nodejs.org) | which was actually totally your idea.
+[**node.js**](http://nodejs.org)
+: which was actually totally my idea. | **COBOL** | I invented it
 
+Special relativity
+: derived the famous equation $E=mc^2$ in my spare time
 
 # Skills
 
 Basic knowledge 
-: **C** | **x86 assembly** | **forth**, **Common Lisp**
+: **C** , x86 assembly, **forth**, Common Lisp
 
-
+Advanced knowledge
+: Lua , **Pandoc**, \LaTeX{}
 
 # Languages
 
-English
+Swahili
 : native speaker 
 
-Swahili
+English
 : so-so
-
-This is
-: what a nested list looks like.
 
 

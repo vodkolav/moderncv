@@ -133,27 +133,35 @@ local function split_inlines_by_sep(inlines)
 end
 
 
+function preserve(field)
+  return pandoc.write(pandoc.Pandoc({pandoc.Plain(field)}), 'latex')
+end
+
+
+
 function DefinitionList(el)
   local out = {}
   for _, item in ipairs(el.c or {}) do
     local term, definitions = item[1], item[2]
-    local term_tex = pandoc.utils.stringify(term or {})
+    local term_tex = preserve(term or {})
 
     if #definitions == 0 then
       -- No definitions, produce \cvitem with an empty description
+      debug_log("No definitions for item: " .. stringify(item))
       table.insert(out, pandoc.RawBlock('latex', '\\cvitem{' .. term_tex .. '}{ }'))
     else
       local first_def = definitions[1]
       local fields, description_blocks = {}, {}
 
+      fields = split_inlines_by_sep(first_def[1].c)
+
       if first_def[1] and first_def[1].t == 'Para' then
         -- Split the first paragraph into fields using the separator
         -- debug_log("first_def" .. stringify(first_def) .. " el.t:" .. first_def.t)
-        fields = split_inlines_by_sep(first_def[1].c)
 
-        for i, j in ipairs(fields) do
-          debug_log("i:" .. i .. "Field: " .. stringify(j) .. " j.t:" .. stringify( j.t or {}))
-        end
+        -- for i, j in ipairs(fields) do
+        --   debug_log("i:" .. i .. "Field: " .. stringify(j) .. " j.t:" .. stringify( j.t or {}))
+        -- end
         -- debug_log("Fields: " .. fields)
         -- debug_log("Description Blocks: " .. description_blocks)
 
@@ -178,14 +186,15 @@ function DefinitionList(el)
         table.insert(out, pandoc.RawBlock('latex', string.format(
           '\\cventry{%s}{%s}{%s}{%s}{%s}{%s}',
           term_tex,  -- Term
-          pandoc.utils.stringify(fields[1] or '') ,  -- Field 1
-          pandoc.utils.stringify(fields[2] or '') ,  -- Field 2
-          pandoc.utils.stringify(fields[3] or '') ,  -- Field 3
-          pandoc.utils.stringify(fields[4] or '') ,  -- Field 4
+          preserve(fields[1] or '') ,  -- Field 1
+          preserve(fields[2] or '') ,  -- Field 2
+          preserve(fields[3] or '') ,  -- Field 3
+          preserve(fields[4] or '') ,  -- Field 4
           desc              -- Description
         )))
       else
         -- If no block elements, produce \cvitem family
+        debug_log("cvitem fields: " .. stringify(fields))
         if #fields == 0 then
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvitem{%s}{}',
@@ -194,22 +203,22 @@ function DefinitionList(el)
         elseif #fields == 1 then
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvitem{%s}{%s}',
-            term_tex, pandoc.utils.stringify(fields[1])
+            term_tex, preserve(fields[1])
           )))
         elseif #fields == 2 then
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvitemwithcomment{%s}{%s}{%s}',
-            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2])
+            term_tex, preserve(fields[1]), preserve(fields[2])
           )))
         elseif #fields == 3 then
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvdoubleitem{%s}{%s}{%s}{%s}',
-            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2]), pandoc.utils.stringify(fields[3])
+            term_tex, preserve(fields[1]), preserve(fields[2]), preserve(fields[3])
           )))
         else
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvdoubleitem{%s}{%s}{%s}{%s}',
-            term_tex, pandoc.utils.stringify(fields[1]), pandoc.utils.stringify(fields[2]), table.concat(fields, ' ', 3)
+            term_tex, preserve(fields[1]), preserve(fields[2]) , preserve(fields[3]) .. preserve(fields[4])
           )))
         end
       end

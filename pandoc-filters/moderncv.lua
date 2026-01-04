@@ -7,6 +7,10 @@ local function debug_log(msg)
   log_file:close()
 end
 
+local function trim(s)
+  return (s:gsub("^%s+", ""):gsub("%s+$", ""))
+end
+
 local stringify = (require 'pandoc.utils').stringify
 
 local function escape_tex(s)
@@ -228,6 +232,110 @@ function DefinitionList(el)
 end
 
 
+
+function Meta(meta)
+  local blocks = {}
+
+  local function mstr(key)
+    local v = meta[key]
+    if not v then return nil end
+    return pandoc.utils.stringify(v)
+  end
+
+  local function split_name(s)
+    if not s or s == '' then return nil, nil end
+    local first, rest = s:match('^(%S+)%s+(.+)$')
+    if first then return first, rest end
+    return s, ''
+  end
+
+  local function split_comma(s)
+    if not s then return {} end
+    local parts = {}
+    for part in s:gmatch('[^,]+') do
+      parts[#parts+1] = trim(part)
+    end
+    return parts
+  end
+
+  -- name: prefer explicit firstname/lastname, else split `name`
+  local firstname = mstr('firstname')
+  local lastname = mstr('lastname')
+  if not firstname and not lastname then
+    local n = mstr('name')
+    if n then firstname, lastname = split_name(n) end
+  end
+  if firstname or lastname then
+    firstname = firstname or ''
+    lastname = lastname or ''
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\name{%s}{%s}', escape_tex(firstname), escape_tex(lastname))))
+  end
+
+  -- title
+  local title = mstr('title')
+  if title and title ~= '' then
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\title{%s}', escape_tex(title))))
+  end
+
+  -- address: stringify and split on commas into up to three parts
+  if meta['address'] then
+    local addr_raw = pandoc.utils.stringify(meta['address'])
+    local parts = split_comma(addr_raw)
+    local street = parts[1] or ''
+    local city = parts[2] or ''
+    local country = parts[3] or ''
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\address{%s}{%s}{%s}', escape_tex(street), escape_tex(city), escape_tex(country))))
+  end
+
+  -- phones: support either single `phone` or a map `phones`
+  local phone = mstr('phone')
+  if phone and phone ~= '' then
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\phone[mobile]{%s}', escape_tex(phone))))
+  end
+  if meta['phones'] then
+    for k, v in pairs(meta['phones']) do
+      local num = pandoc.utils.stringify(v)
+      if num and num ~= '' then
+        table.insert(blocks, pandoc.RawBlock('latex', string.format('\\phone[%s]{%s}', escape_tex(k), escape_tex(num))))
+      end
+    end
+  end
+
+  -- email
+  local email = mstr('email')
+  if email and email ~= '' then
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\email{%s}', escape_tex(email))))
+  end
+
+  -- homepage
+  local homepage = mstr('homepage') or mstr('url')
+  if homepage and homepage ~= '' then
+    table.insert(blocks, pandoc.RawBlock('latex', string.format('\\homepage{%s}', escape_tex(homepage))))
+  end
+
+  -- social: expect a map of type -> account or url
+  if meta['social'] then
+    for k, v in pairs(meta['social']) do
+      local account = pandoc.utils.stringify(v)
+      if account and account ~= '' then
+        -- if looks like a url, put it as url argument; else as account
+        if account:match('^https?://') then
+          table.insert(blocks, pandoc.RawBlock('latex', string.format('\\social[%s]{%s}', escape_tex(k), escape_tex(account))))
+        else
+          table.insert(blocks, pandoc.RawBlock('latex', string.format('\\social[%s]{%s}', escape_tex(k), escape_tex(account))))
+        end
+      end
+    end
+  end
+
+  -- append to header-includes (create or extend)
+  local hi = meta['header-includes'] or {}
+  for _, b in ipairs(blocks) do table.insert(hi, b) end
+  meta['header-includes'] = hi
+  return meta
+end
+
 return {
-  { DefinitionList = DefinitionList }
+  { DefinitionList = DefinitionList,
+    Meta = Meta}
 }

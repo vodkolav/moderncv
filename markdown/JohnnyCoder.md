@@ -6,9 +6,9 @@ phone:  +00 (0)12 345 6789
 address:  Mytown, Mycountry
 homepage: www.johndoe.com
 social:
-    github: Johnny-Coder
-    twitter: jdoe
     linkedin: Johnny-Coder
+    twitter: jdoe
+    github: Johnny-Coder
 ---
 
 In this style, the resume starts with a blockquote, where you can briefly list your specialties, \

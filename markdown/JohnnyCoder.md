@@ -1,6 +1,6 @@
 ---
-name: Johnny Coder
-title: Curriculum Vitae
+author: Johnny Coder
+title: Awesomeness Manager
 email: email@example.com
 phone:  +00 (0)12 345 6789
 address:  Mytown, Mycountry
@@ -11,8 +11,7 @@ social:
     github: Johnny-Coder
 ---
 
-In this style, the resume starts with a blockquote, where you can briefly list your specialties, \
-```or include a salient quote```\
+In this style, the resume starts with an "About" block, where you can briefly list your specialties, or ```include a salient quote```\
 Ending a line with a backslash forces a line break.
 
 

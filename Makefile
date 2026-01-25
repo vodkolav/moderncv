@@ -40,7 +40,27 @@ docx: init
 	for f in $(IN_DIR)/*.md; do \
 		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
 		echo $$FILE_NAME.docx; \
-		pandoc --standalone $$SMART $$f --output $(OUT_DIR)/$$FILE_NAME.docx; \
+		pandoc --standalone $$SMART $$f \
+		--output $(OUT_DIR)/$$FILE_NAME.docx; \
+	done
+
+docx_t: init #docx with template
+	for f in $(IN_DIR)/*.md; do \
+		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
+		echo $$FILE_NAME.docx; \
+		pandoc --standalone $$SMART $$f \
+		--reference-doc=templates/reference.docx\
+		--template=templates/template.openxml \
+		--output $(OUT_DIR)/$$FILE_NAME.docx; \
+	done
+
+json: tex
+	for f in $(IN_DIR)/*.md; do \
+		FILE_NAME=`basename $$f | sed 's/.md//g'`; \
+		echo $$FILE_NAME.json; \
+		pandoc --standalone $$SMART $$f \
+		-t json \
+		--output $(OUT_DIR)/$$FILE_NAME.json; \
 	done
 
 rtf: init

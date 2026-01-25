@@ -156,12 +156,20 @@ function DefinitionList(el)
     else
       local first_def = definitions[1]
       local fields, description_blocks = {}, {}
-
+      
+      debug_log("item1: " .. stringify(item[1])) -- .. " el.t:" .. stringify(definitions))
+      debug_log("item2: " .. stringify(item[2])) -- .. " el.t:" .. stringify(definitions))
+      debug_log("first_def: " .. stringify(first_def)) -- .. " el.t:" .. stringify(definitions))
+      debug_log("first_def[1]: " .. stringify(first_def[1])) -- .. " el.t:" .. stringify(definitions))
       fields = split_inlines_by_sep(first_def[1].c)
-
-      if first_def[1] and first_def[1].t == 'Para' then
+      
+      if first_def[2] then  --and first_def[2].t == 'Para' then
+        
+        desc =  {table.unpack(first_def, 2)} -- from second element to end 
         -- Split the first paragraph into fields using the separator
-        -- debug_log("first_def" .. stringify(first_def) .. " el.t:" .. first_def.t)
+        debug_log("first_def[2]: " .. stringify(first_def[2])) -- .. " el.t:" .. stringify(definitions))
+        debug_log("first_def[2].t: " .. stringify(first_def[2].t)) -- .. " el.t:" .. stringify(definitions))
+        
 
         -- for i, j in ipairs(fields) do
         --   debug_log("i:" .. i .. "Field: " .. stringify(j) .. " j.t:" .. stringify( j.t or {}))
@@ -169,24 +177,26 @@ function DefinitionList(el)
         -- debug_log("Fields: " .. fields)
         -- debug_log("Description Blocks: " .. description_blocks)
 
-        for i = 2, #first_def do
-          table.insert(description_blocks, first_def[i])
-        end
-      end
+      --   for i = 2, #first_def do
+      --     debug_log("  first_def[2][" .. i .. "]: " .. stringify(first_def[i])) -- .. " el.t:" .. stringify(definitions))
 
-      for i = 2, #definitions do
-        for _, block in ipairs(definitions[i] or {}) do
-          table.insert(description_blocks, block)
-        end
-      end
+      --     table.insert(description_blocks, first_def[i])
+      --   end
+      -- end
 
-      if #description_blocks > 0 then
+      -- for i = 2, #definitions do
+      --   for _, block in ipairs(definitions[i] or {}) do
+      --     table.insert(description_blocks, block)
+      --   end
+      -- end
+
+      -- if #description_blocks > 0 then
         -- If there are block elements, produce \cventry
-        local desc = pandoc.write(pandoc.Pandoc(description_blocks), 'latex')
+        local desc = pandoc.write(pandoc.Pandoc(desc), 'latex')
         -- desc = string.format("\\parbox[t]{\\textwidth}{%s}", desc)  -- Wrap in \parbox
         -- desc = string.format("\\begin{minipage}[t]{\\textwidth}%s\\end{minipage}", desc)
         desc = desc:gsub("\n\n", "\n")
-        debug_log("desc:" .. desc)
+        -- debug_log("desc:" .. desc)
         table.insert(out, pandoc.RawBlock('latex', string.format(
           '\\cventry{%s}{%s}{%s}{%s}{%s}{%s}',
           term_tex,  -- Term
@@ -198,7 +208,7 @@ function DefinitionList(el)
         )))
       else
         -- If no block elements, produce \cvitem family
-        debug_log("cvitem fields: " .. stringify(fields))
+        -- debug_log("cvitem fields: " .. stringify(fields))
         if #fields == 0 then
           table.insert(out, pandoc.RawBlock('latex', string.format(
             '\\cvitem{%s}{}',
@@ -258,12 +268,21 @@ function Meta(meta)
     return parts
   end
 
-  -- name: prefer explicit firstname/lastname, else split `name`
+  -- name: prefer explicit firstname/lastname, else split `name` or `author`
   local firstname = mstr('firstname')
   local lastname = mstr('lastname')
   if not firstname and not lastname then
-    local n = mstr('name')
-    if n then firstname, lastname = split_name(n) end
+    local name = mstr('name')
+    if name then 
+      firstname, lastname = split_name(name) 
+    else
+      local author = mstr('author')
+      if author then
+        firstname, lastname = split_name(author)
+      else
+        error("moderncv.lua: No name information found in metadata (need 'name' or 'firstname'/'lastname' or 'author')")
+      end
+    end
   end
   if firstname or lastname then
     firstname = firstname or ''
